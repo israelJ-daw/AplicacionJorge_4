@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Avg
-
+from .forms import *
 from .models import *
 
 # Create your views here.
@@ -94,6 +94,37 @@ def error_500(request, exception=None):
 
 #Formulario para buscar el nombre de una propiedad
 
+from django.shortcuts import  redirect
+
 def Propiedad_buscar(request):
+    if request.method == 'POST':  # Si el formulario se envía (POST)
+        formulario = ReservaForm(request.POST)  # Creamos el formulario con los datos del POST
+        
+        if formulario.is_valid():  # Si el formulario es válido
+            formulario.save()  # Guardamos los datos en la base de datos
+            return redirect('reserva_exitosa')  
+    else:
+        formulario = ReservaForm()  # Si es un GET, mostramos el formulario vacío
     
-    return render(request, 'Formularios/Propiedad_buscar.html')
+    # Renderiza la plantilla y pasa el formulario a la vista
+    return render(request, 'Formularios/Propiedad_buscar.html', {'formulario': formulario})
+
+def reserva_exitosa(request):
+    return render (request, 'plantillas/reserva_exitosa.html')
+
+
+def actualizar_reserva(request, reserva_id):
+    # Obtiene la reserva que se va a actualizar (si no existe, lanza un error 404)
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+
+    # Si el formulario se envía (POST)
+    if request.method == 'POST':
+        formulario = ReservaForm(request.POST, instance=reserva)  # Le pasamos la instancia para actualizar
+        if formulario.is_valid():  # Si el formulario es válido
+            formulario.save()  # Guarda los cambios en la base de datos
+            return redirect('reserva_exitosa')  # Redirige a la página de éxito
+    else:
+        formulario = ReservaForm(instance=reserva)  # Si es GET, muestra el formulario con los datos existentes
+
+    # Renderiza el formulario
+    return render(request, 'Formularios/actualizar_reserva.html', {'formulario': formulario})

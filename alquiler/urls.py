@@ -17,6 +17,8 @@ urlpatterns = [
     path('error/404/', views.error_404, name='error_404'),  # Error personalizado
     path('error/404/', views.error_404, name='error_404'),  # Error personalizado
     path('error/404/', views.error_404, name='error_404'),  # Error personalizado
-    path('Propiedad_buscar/ ', views.Propiedad_buscar, name='Propiedad_buscar'), #Formulario para buscar una propiedad 
-    
+    path('reservas/nueva/', views.Propiedad_buscar , name='reserva_crear'),
+    path('reserva_exitosa/', views.reserva_exitosa, name='reserva_exitosa'),
+    path('reserva/<int:reserva_id>/actualizar/', views.actualizar_reserva, name='actualizar_reserva'),
+
 ]

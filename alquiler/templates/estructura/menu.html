@@ -18,10 +18,63 @@
 
 <h3>Formularios</h3>
 
+<h4>Usuarios</h4>
 <ul>       
 
-    <li><a href="{% url 'reserva_crear' %}">Formulario Crear</a></li>
-    <li><a href="{% url 'actualizar_reserva' reserva_id=4 %}">Actualizar</a></li>
+   <li> <a href="{% url 'usuario_crear' %}">Crear Usuario</a> </li>
 
+  <li> <a href="{% url 'usuario_lista' %}">Usuarios Lista</a> </li>
 
 </ul>
+
+<h4>Perfiles</h4>
+
+<ul>       
+
+    <li> <a href="{% url 'perfil_crear' %}">Crear Perfil</a> </li>
+ 
+   <li> <a href="{% url 'perfil_lista' %}">Perfil Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Categorias</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'categoria_crear' %}">Crear Categorias</a> </li>
+ 
+   <li> <a href="{% url 'categoria_lista' %}">Categorias Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Servicios Extras</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'servicioextra_crear' %}">Crear Servicios</a> </li>
+ 
+   <li> <a href="{% url 'servicioextra_lista' %}">Servicios Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Propiedades</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'propiedad_crear' %}">Crear Propiedad</a> </li>
+ 
+   <li> <a href="{% url 'propiedad_lista' %}">Propiedades Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Prioridades</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'prioridad_crear' %}">Crear Prioridad</a> </li>
+ 
+   <li> <a href="{% url 'prioridad_lista' %}">Prioridad Lista</a> </li>
+ 
+ </ul>
+
+

@@ -1,47 +1,35 @@
- templates tags:
- 1 for/endfor  en todos    
- 2 block/endblock en todos
- 3 include  en todos
- 4 empty en categorias_sin_propiedades.html
- 5 {% static  'img/imagen.jpeg'  %} en principal
+Las validaciones estan explicadas segun se hacen, el form, aqui voy a explicar los widgets que tengo 
+
+1) TextInput: Utilizado en varios formularios para campos como nombre, titulo, y direccion
+
+    'nombre': forms.TextInput(attrs={'class': 'form-control'}),
 
 
- 
+2) EmailInput: Usado en el formulario UsuarioForm para el campo email
 
-operadores:
+    'email': forms.EmailInput(attrs={'class': 'form-control'}),
 
-1  {% if comentario.anonimo == True %} en plantilla_comentarios_propiedad.html
+3) DateTimeInput: Usado en el formulario UsuarioForm para el campo fecha_registro
 
-2  {% if propiedad.direccion => "Subject add media. Discussion person people however day couple. Cold type begin." %} en plantilla_detalle_categoria.html
+    'fecha_registro': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
 
-3  {% if propiedad.precio_por_noche < 100 %} en plantilla_lista_propiedades.html
+4) Textarea: Utilizado en varios formularios para campos de texto más largos, como ubicacion, biografia, y descripcion
 
-4  {% if usuario.fecha_registro|date:"Y" > "2023" %} en usuario_detalle.html
+    'biografia': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
 
-5  {% if propiedad.max_usuarios <=2 %}
+5) NumberInput: Usado en varios formularios para campos numéricos como edad, precio, precio_por_noche, max_usuarios, y numero.
+
+    'edad': forms.NumberInput(attrs={'class': 'form-control'}),
+
+6) Select: Usado en el formulario PerfilForm para el campo genero y en PropiedadForm para campos relacionados como usuario
 
 
+    'genero': forms.Select(choices=[('M', 'Masculino'), ('F', 'Femenino')], attrs={'class': 'form-control'}),
 
+7) CheckboxInput: Usado para campos booleanos como premiun, principal, y disponibl
 
+    'premiun': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
 
-10 template filtrer:
+8) CheckboxSelectMultiple: Utilizado en el formulario PropiedadForm para el campo servicios_extra
 
-1 |capfirst en plantilla_categorias_sin_propiedades.html
-
-2 |date:"d-m-Y" en todas las fechas
-
-3  cut:" "  en pantilla_filtrar_reservas.html
-
-4  time:"H:i" en plantilla_usuario_detalle.html
-
-5 linenumbers en plantilla_lista_propiedades
-
-6 |title en plantilla_detalle_categorias.html
-
-7  timesince en plantilla_comentarios_propiedad.html
-
-8 upper en plantilla_detalle_categoria.html
-
-9 | lower en plantilla_detalle_categoria.html
-
-10 | default:"No hay nada" en plantilla_comentario_propiedad.html
+    'servicios_extra': forms.CheckboxSelectMultiple(),

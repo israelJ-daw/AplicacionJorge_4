@@ -76,3 +76,6 @@ class CategoriaPrincipal(models.Model):
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='categoria_principal')
     propiedad = models.ForeignKey(Propiedad, on_delete=models.CASCADE, related_name='categoria_principal')
+
+
+
